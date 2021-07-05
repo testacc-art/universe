@@ -22,6 +22,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: |
+          dir=$(yarn cache dir)
+          ls $dir
       # https://github.com/actions/setup-node
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -29,6 +32,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: yarn
 
+      - run: |
+          dir=$(yarn cache dir)
+          ls $dir
+      
       - name: Install Yarn dependencies
         run: yarn install --frozen-lockfile
 
