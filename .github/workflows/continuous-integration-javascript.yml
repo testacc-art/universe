@@ -6,7 +6,6 @@ env:
   CI: true
   FORCE_COLOR: '1' # https://github.com/chalk/chalk/issues/203
   NODE_OPTIONS: --max-old-space-size=6144
-  BABEL_DISABLE_CACHE: '1'
 
 jobs:
   build:
@@ -26,9 +25,10 @@ jobs:
 
       # https://github.com/actions/setup-node
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.2.0
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: yarn
 
       - name: Install Yarn dependencies
         run: yarn install --frozen-lockfile
