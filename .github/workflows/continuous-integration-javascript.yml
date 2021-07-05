@@ -34,6 +34,8 @@ jobs:
       - name: Install Yarn dependencies
         run: yarn install --frozen-lockfile
 
+      - run: ls /home/runner/.cache/yarn/v6
+
       - name: Run Flow checks
         run: |
           yarn flow version --binary
