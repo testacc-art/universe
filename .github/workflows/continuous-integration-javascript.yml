@@ -29,15 +29,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-  
-      - run: |
-          dir=$(yarn cache dir)
-          ls $dir
+
   
       - name: Install Yarn dependencies
         run: yarn install --frozen-lockfile
 
-      - run: ls /home/runner/.cache/yarn/v6
 
       - name: Run Flow checks
         run: |
